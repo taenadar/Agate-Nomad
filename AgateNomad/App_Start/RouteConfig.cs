@@ -14,6 +14,11 @@ namespace AgateNomad.App_Start
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            // Show a 404 error page for anything else.
+            routes.MapRoute("Error", "{*url}",
+                new { controller = "CatchAll", action = "Index" }
+            );
         }
     }
 }
